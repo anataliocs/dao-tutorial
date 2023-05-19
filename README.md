@@ -6,10 +6,7 @@ This sentence describes what my project is about summarized.
 
 I can explain how my project works here with different topics.
 
-## Upcoming
-
-- [x] I have done this activity
-- [ ] I plan to do this activity next
+https://sepolia.etherscan.io/address/0x07426f3F1524cE7569f3856C703621A54c5e5eFc
 
 ## Contribution
 
@@ -19,7 +16,3 @@ Feel free to contribute to this project to make it better!
 
 This project has an MIT License.
 
-## Made by love
-
-- [StarterTemplates](https://twitter.com/startertemp)
-- [LearnWeb3DAO](https://learnweb3.io)

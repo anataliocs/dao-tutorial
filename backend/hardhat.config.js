@@ -22,9 +22,9 @@ module.exports = {
 
 module.exports = {
   solidity: "0.8.9",
-  defaultNetwork: "goerli",
+  defaultNetwork: "sepolia",
   networks: {
-    goerli: {
+    sepolia: {
       url: process.env.INFURA_HTTP_URL,
       accounts: [process.env.PRIVATE_KEY],
     },
