@@ -1,16 +1,10 @@
-# This is my project title
+# DAO Tutorial Example Project
 
-This sentence describes what my project is about summarized.
+This project simulates the creation of a DAO smart contract with a front-end built with next.js
 
-## More Details
-
-I can explain how my project works here with different topics.
+## Example Deployment on Testnet
 
 https://sepolia.etherscan.io/address/0x07426f3F1524cE7569f3856C703621A54c5e5eFc
-
-## Contribution
-
-Feel free to contribute to this project to make it better!
 
 ## License
 
