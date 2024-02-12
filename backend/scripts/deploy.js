@@ -1,30 +1,21 @@
 const hre = require("hardhat");
-const { CRYPTODEVS_NFT_CONTRACT_ADDRESS } = require("../constants");
+const { SPHERONDEVS_NFT_CONTRACT_ADDRESS } = require("../constants");
 
 async function main() {
-// Deploy the FakeNFTMarketplace contract first
-  const FakeNFTMarketplace = await ethers.getContractFactory(
-      "FakeNFTMarketplace"
-  );
-  const fakeNftMarketplace = await FakeNFTMarketplace.deploy();
-  await fakeNftMarketplace.deployed();
 
-  console.log("FakeNFTMarketplace deployed to: ", fakeNftMarketplace.address);
-
-  // Now deploy the CryptoDevsDAO contract
-  const CryptoDevsDAO = await ethers.getContractFactory("CryptoDevsDAO");
-  const cryptoDevsDAO = await CryptoDevsDAO.deploy(
-      fakeNftMarketplace.address,
-      CRYPTODEVS_NFT_CONTRACT_ADDRESS,
+  // Now deploy the SpheronDevsDAO contract
+  const SpheronDevsDAO = await ethers.getContractFactory("SpheronDevsDAO");
+  const spheronDevsDAO = await SpheronDevsDAO.deploy(
+      SPHERONDEVS_NFT_CONTRACT_ADDRESS,
       {
         // This assumes your metamask account has at least 1 ETH in its account
         // Change this value as you want
         value: ethers.utils.parseEther("0.48"),
       }
   );
-  await cryptoDevsDAO.deployed();
+  await spheronDevsDAO.deployed();
 
-  console.log("CryptoDevsDAO deployed to: ", cryptoDevsDAO.address);
+  console.log("SpheronDevsDAO deployed to: ", spheronDevsDAO.address);
 }
 
 // Async Sleep function
