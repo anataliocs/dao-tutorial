@@ -55,7 +55,7 @@ contract SpheronDevsDAO is Ownable {
     }
 
     // Create a modifier which only allows a function to be
-    // called by someone who owns at least 1 CryptoDevsNFT
+    // called by someone who owns at least 1 SpheronDevsNFT
     modifier nftHolderOnly() {
         require(spheronDevsNFT.balanceOf(msg.sender) > 0, "NOT_A_DAO_MEMBER");
         _;

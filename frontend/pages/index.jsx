@@ -4,10 +4,10 @@ import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import Web3Modal from "web3modal";
 import {
-  CRYPTODEVS_DAO_ABI,
-  CRYPTODEVS_DAO_CONTRACT_ADDRESS,
-  CRYPTODEVS_NFT_ABI,
-  CRYPTODEVS_NFT_CONTRACT_ADDRESS,
+  SPHERON_DEVS_DAO_ABI,
+  SPHERON_DEVS_DAO_CONTRACT_ADDRESS,
+  SPHERON_DEVS_NFT_ABI,
+  SPHERON_DEVS_NFT_CONTRACT_ADDRESS,
 } from "../constants";
 import styles from "../styles/Home.module.css";
 
@@ -18,7 +18,7 @@ export default function Home() {
   const [numProposals, setNumProposals] = useState("0");
   // Array of all proposals created in the DAO
   const [proposals, setProposals] = useState([]);
-  // User's balance of CryptoDevs NFTs
+  // User's balance of SpheronDevs NFTs
   const [nftBalance, setNftBalance] = useState(0);
   // Fake NFT Token ID to purchase. Used when creating a proposal.
   const [fakeNftTokenId, setFakeNftTokenId] = useState("");
@@ -87,7 +87,7 @@ export default function Home() {
     try {
       const provider = await getProviderOrSigner();
       const balance = await provider.getBalance(
-          CRYPTODEVS_DAO_CONTRACT_ADDRESS
+          SPHERONDEVS_DAO_CONTRACT_ADDRESS
       );
       setTreasuryBalance(balance.toString());
     } catch (error) {
@@ -107,11 +107,11 @@ export default function Home() {
     }
   };
 
-  // Reads the balance of the user's CryptoDevs NFTs and sets the `nftBalance` state variable
+  // Reads the balance of the user's SpheronDevs NFTs and sets the `nftBalance` state variable
   const getUserNFTBalance = async () => {
     try {
       const signer = await getProviderOrSigner(true);
-      const nftContract = getCryptodevsNFTContractInstance(signer);
+      const nftContract = getSpherondevsNFTContractInstance(signer);
       const balance = await nftContract.balanceOf(signer.getAddress());
       setNftBalance(parseInt(balance.toString()));
     } catch (error) {
@@ -228,18 +228,18 @@ export default function Home() {
   // given a Provider/Signer
   const getDaoContractInstance = (providerOrSigner) => {
     return new Contract(
-        CRYPTODEVS_DAO_CONTRACT_ADDRESS,
-        CRYPTODEVS_DAO_ABI,
+        SPHERONDEVS_DAO_CONTRACT_ADDRESS,
+        SPHERONDEVS_DAO_ABI,
         providerOrSigner
     );
   };
 
-  // Helper function to return a CryptoDevs NFT Contract instance
+  // Helper function to return a SpheronDevs NFT Contract instance
   // given a Provider/Signer
-  const getCryptodevsNFTContractInstance = (providerOrSigner) => {
+  const getSpherondevsNFTContractInstance = (providerOrSigner) => {
     return new Contract(
-        CRYPTODEVS_NFT_CONTRACT_ADDRESS,
-        CRYPTODEVS_NFT_ABI,
+        SPHERONDEVS_NFT_CONTRACT_ADDRESS,
+        SPHERONDEVS_NFT_ABI,
         providerOrSigner
     );
   };
@@ -378,8 +378,8 @@ export default function Home() {
   return (
       <div>
         <Head>
-          <title>CryptoDevs DAO</title>
-          <meta name="description" content="CryptoDevs DAO" />
+          <title>SpheronDevs DAO</title>
+          <meta name="description" content="SpheronDevs DAO" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
@@ -388,7 +388,7 @@ export default function Home() {
             <h1 className={styles.title}>Welcome to Crypto Devs!</h1>
             <div className={styles.description}>Welcome to the DAO!</div>
             <div className={styles.description}>
-              Your CryptoDevs NFT Balance: {nftBalance}
+              Your SpheronDevs NFT Balance: {nftBalance}
               <br />
               Treasury Balance: {formatEther(treasuryBalance)} ETH
               <br />
@@ -427,7 +427,7 @@ export default function Home() {
         </div>
 
         <footer className={styles.footer}>
-          Made with &#10084; by Crypto Devs
+          Made with &#10084; by Spheron Devs
         </footer>
       </div>
   );
